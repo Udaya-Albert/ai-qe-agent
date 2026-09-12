@@ -1,0 +1,15 @@
+Payment Cancellation Requirements
+
+1. A cancellation request may be submitted for a payment that has not yet been settled.
+
+2. A cancellation request must be rejected when the payment has already been settled.
+
+3. The cancellation API must return HTTP 409 when cancellation is rejected because the payment has already been settled.
+
+4. The cancellation response must contain error code PAYMENT_ALREADY_SETTLED.
+
+5. Cancellation requests must be authenticated.
+
+6. A successful cancellation must change the payment status to CANCELLED.
+
+7. A cancellation request for a payment that does not exist must return HTTP 404.
